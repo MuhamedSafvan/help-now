@@ -1,10 +1,11 @@
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+class Note {
+  late String name;
+  late String unitPrice;
 
-Future<List> getData() async {
-  final response = await http.get(
-      'https://mocki.io/v1/26ca1ca6-332a-46fe-9df8-392d87a0ecf2',
-      headers: {"Accept": "application/json"});
-      var convertDatatoJson = jsonDecode(response.body);
-      return convertDatatoJson;
+  Note(this.name, this.unitPrice);
+
+  Note.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    unitPrice = json['unitprice'];
+  }
 }
