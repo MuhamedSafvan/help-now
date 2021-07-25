@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     final String response = await rootBundle.loadString('assets/sample.json');
     final data = await json.decode(response);
     setState(() {
-      _items = data["items"];
+      _items = data["product_list"];
     });
   }
 
