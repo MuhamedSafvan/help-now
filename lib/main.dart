@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helpnow/screens/productScreen.dart';
 import 'package:helpnow/widgets/counters.dart';
 import 'dart:convert';
 import 'package:http/http.dart';
@@ -55,27 +56,39 @@ class _HomePageState extends State<HomePage> {
                   return ListView.builder(
                       itemCount: list.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "${list[index]["name"]}",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
-                                ),
-                                SizedBox(
-                                  height: 8,
-                                ),
-                                Text("Unit Price: "
-                                    "${list[index]["unitprice"]}"),
-                                Text("Special Price: " "${list[index]["sp"]}"),
-                                SizedBox(height: 10,),
-                                IncrementDecrement(),
-                              ],
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen()),
+                            );
+                          },
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "${list[index]["name"]}",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text("Unit Price: "
+                                      "${list[index]["unitprice"]}"),
+                                  Text(
+                                      "Special Price: " "${list[index]["sp"]}"),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  IncrementDecrement(),
+                                ],
+                              ),
                             ),
                           ),
                         );
