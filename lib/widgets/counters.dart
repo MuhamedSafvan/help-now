@@ -33,11 +33,11 @@ class _IncrementDecrementState extends State<IncrementDecrement> {
             width: 30,
             height: 30,
             child: FittedBox(
-              child: FloatingActionButton(
+              child: IconButton(
                 onPressed: () {
                   decrementctr();
                 },
-                child: Icon(Icons.remove),
+                icon: Icon(Icons.remove),
               ),
             ),
           ),
@@ -52,11 +52,11 @@ class _IncrementDecrementState extends State<IncrementDecrement> {
             width: 30,
             height: 30,
             child: FittedBox(
-              child: FloatingActionButton(
+              child: IconButton(
                 onPressed: () {
                   incrementctr();
                 },
-                child: Icon(Icons.add),
+                icon: Icon(Icons.add),
               ),
             ),
           ),
